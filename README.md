@@ -11,7 +11,7 @@ node.js와 express를 활용한 frontend 구성
 └─server
 ```
 
-<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=reactos&logoColor=black" href="https://github.com/Changgyu1/react-website/blob/master/server/server.js">
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=reactos&logoColor=black">
 
 ## Installation
 
