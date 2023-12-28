@@ -1,7 +1,7 @@
 // Header.js
-import React from 'react';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -21,6 +21,12 @@ const Header = () => {
             </Nav.Link>
             <Nav.Link as={Link} to="/todos">
               Todo List
+            </Nav.Link>
+            <Nav.Link as={Link} to="/weatherSerach">
+              WeatherSerach
+            </Nav.Link>
+            <Nav.Link as={Link} to="/weather">
+              Weather
             </Nav.Link>
             <NavDropdown title="Games" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/numberGuessingGame">

@@ -1,12 +1,16 @@
-import React from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import MusicPlayer from "./Music/MusicPlayerOld";
+import Weather from "./Weather/Weather";
 
 const Home = () => {
   return (
     <Container>
       <Row>
         <Col>
+          <Weather />
+          <MusicPlayer />
           <Card>
             <Card.Body>
               <Card.Title>리액트 웹사이트</Card.Title>
