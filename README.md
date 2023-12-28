@@ -12,7 +12,7 @@ node.js와 express를 활용한 frontend 구성
 ```
 
 <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=reactos&logoColor=black">
-
+[Click here to try](https://leebo-ram.github.io/Navbar/)
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
