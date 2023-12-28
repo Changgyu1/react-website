@@ -12,7 +12,7 @@ node.js와 express를 활용한 frontend 구성
 ```
 
 <img src="https://img.shields.io/badge/react-61DFFF?style=for-the-badge&logo=reactos&logoColor=black">
-[Click here](https://github.com/Changgyu1/react-website/blob/7bd1cc5ad3230720cb4c14db8a593f4e5d19fd04/server/)
+[Click here](https://github.com/Changgyu1/react-website/blob/7bd1cc5ad3230720cb4c14db8a593f4e5d19fd04/server/server.js)
 
 ## Installation
 
