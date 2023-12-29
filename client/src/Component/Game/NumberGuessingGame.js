@@ -1,7 +1,14 @@
 import "./NumberGuessingGame.css";
-import { ProgressBar } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Alert,
+  ProgressBar,
+} from "react-bootstrap";
 
 const NumberGuessingGame = () => {
   const generateRandomNumber = () => {
@@ -13,16 +20,23 @@ const NumberGuessingGame = () => {
   const [message, setMessage] = useState("");
   const [attempts, setAttempts] = useState(5);
   const [guessHistory, setGuessHistory] = useState([]);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    // 5번의 기회가 있기 때문에 5를 넣어줌
+    // 숫자를 넣을수록 기회가 감소하기 때문에 -attempts 넣어줌
+    const newProgress = ((5 - attempts) / 5) * 100;
+    setProgress(newProgress);
+
     if (attempts === 0) {
       setMessage(`게임오버! 정답은 ${targetNumber} 입니다. 껄껄`);
       setTargetNumber(generateRandomNumber());
       setAttempts(5);
       setGuessHistory([]);
+      setProgress(0);
     }
   }, [attempts, targetNumber]);
-  const progress = (attempts / attempts) * 100;
+
   const inputChange = (event) => {
     setUserGuess(event.target.value);
   };
@@ -42,6 +56,7 @@ const NumberGuessingGame = () => {
         setTargetNumber(generateRandomNumber());
         setAttempts(5);
         setGuessHistory([]);
+        setProgress(0);
       } else {
         const remainingAttempts = attempts - 1;
         setAttempts(remainingAttempts);
@@ -51,6 +66,7 @@ const NumberGuessingGame = () => {
           setTargetNumber(generateRandomNumber());
           setAttempts(5);
           setGuessHistory([]);
+          setProgress(0);
         } else {
           setMessage(
             guess < targetNumber
@@ -68,7 +84,6 @@ const NumberGuessingGame = () => {
     <Container>
       <Row>
         <Col>
-          <ProgressBar now={progress} label={`${progress.toFixed(2)}%`} />
           <h1 className="mt-4 mb-3">숫자 맞추기 게임</h1>
           <p>1부터 100 사이 숫자를 맞춰보세요.</p>
           <Form onSubmit={inputSubmit} className="mb-4">
@@ -88,7 +103,7 @@ const NumberGuessingGame = () => {
               제출하기
             </Button>
           </Form>
-
+          <ProgressBar now={progress} label={`${progress}%`} />
           <div>
             <p>남은 기회: {attempts}</p>
             <p>입력한 숫자: {guessHistory.join(", ")}</p>
