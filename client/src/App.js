@@ -10,7 +10,7 @@ import Footer from "./Component/Footer";
 import Todo from "./Component/Todo/Todo";
 import WeatherSerach from "./Component/Weather/WeatherSearch";
 import Weather from "./Component/Weather/Weather";
-
+import FastClick from "./Component/Game/FastClick";
 function App() {
   return (
     <Router>
@@ -29,6 +29,7 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/weatherSerach" element={<WeatherSerach />} />
             <Route path="/weather" element={<Weather />} />
+            <Route path="/fastclick" element={<FastClick />} />
           </Routes>
         </div>
 
