@@ -1,20 +1,19 @@
-import React from 'react';
+import React from "react";
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Footer from './Component/Footer';
-import Home from './Component/Home';
-import Header from './Component/Header';
-import MovieList from './Component/Movie/MovieList';
-import NumberGuessingGame from './Component/Game/NumberGuessingGame';
-import Quiz from './Component/Game/Quiz';
-import TodoList from './Component/Todo/TodoList';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./Component/Footer";
+import Home from "./Component/Home";
+import Header from "./Component/Header";
+import MovieList from "./Component/Movie/MovieList";
+import NumberGuessingGame from "./Component/Game/NumberGuessingGame";
+import Quiz from "./Component/Game/Quiz";
+import TodoList from "./Component/Todo/TodoNoCss";
 
 function App() {
   return (
     <Router>
       <div>
         <Header />
-
         <div className="container mt-4">
           <Routes>
             <Route path="/" element={<Home />} />

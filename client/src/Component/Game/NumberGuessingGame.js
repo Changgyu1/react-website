@@ -1,6 +1,7 @@
-import './NumberGuessingGame.css';
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
+import "./NumberGuessingGame.css";
+import { ProgressBar } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 
 const NumberGuessingGame = () => {
   const generateRandomNumber = () => {
@@ -8,8 +9,8 @@ const NumberGuessingGame = () => {
   };
 
   const [targetNumber, setTargetNumber] = useState(generateRandomNumber());
-  const [userGuess, setUserGuess] = useState('');
-  const [message, setMessage] = useState('');
+  const [userGuess, setUserGuess] = useState("");
+  const [message, setMessage] = useState("");
   const [attempts, setAttempts] = useState(5);
   const [guessHistory, setGuessHistory] = useState([]);
 
@@ -21,7 +22,7 @@ const NumberGuessingGame = () => {
       setGuessHistory([]);
     }
   }, [attempts, targetNumber]);
-
+  const progress = (attempts / attempts) * 100;
   const inputChange = (event) => {
     setUserGuess(event.target.value);
   };
@@ -31,7 +32,7 @@ const NumberGuessingGame = () => {
     const guess = parseInt(userGuess, 10);
 
     if (isNaN(guess)) {
-      setMessage('숫자를 작성해주세요.');
+      setMessage("숫자를 작성해주세요.");
     } else {
       const newGuessHistory = [...guessHistory, guess];
       setGuessHistory(newGuessHistory);
@@ -53,13 +54,13 @@ const NumberGuessingGame = () => {
         } else {
           setMessage(
             guess < targetNumber
-              ? '너무 낮습니다. 다시 시도하세요.'
-              : '너무 높습니다. 다시 시도하세요.'
+              ? "너무 낮습니다. 다시 시도하세요."
+              : "너무 높습니다. 다시 시도하세요."
           );
         }
       }
 
-      setUserGuess('');
+      setUserGuess("");
     }
   };
 
@@ -67,6 +68,7 @@ const NumberGuessingGame = () => {
     <Container>
       <Row>
         <Col>
+          <ProgressBar now={progress} label={`${progress.toFixed(2)}%`} />
           <h1 className="mt-4 mb-3">숫자 맞추기 게임</h1>
           <p>1부터 100 사이 숫자를 맞춰보세요.</p>
           <Form onSubmit={inputSubmit} className="mb-4">
@@ -86,12 +88,13 @@ const NumberGuessingGame = () => {
               제출하기
             </Button>
           </Form>
+
           <div>
             <p>남은 기회: {attempts}</p>
-            <p>입력한 숫자: {guessHistory.join(', ')}</p>
+            <p>입력한 숫자: {guessHistory.join(", ")}</p>
           </div>
           {message && (
-            <Alert variant={attempts === 0 ? 'danger' : 'success'}>
+            <Alert variant={attempts === 0 ? "danger" : "success"}>
               {message}
             </Alert>
           )}

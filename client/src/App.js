@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Component/Home";
 import MovieList from "./Component/Movie/MovieList";
-import TodoList from "./Component/Todo/TodoList";
+import TodoList from "./Component/Todo/CreatePags";
 import NumberGuessingGame from "./Component/Game/NumberGuessingGame";
 import Quiz from "./Component/Game/Quiz";
 import Header from "./Component/Header";
